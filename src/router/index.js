@@ -26,7 +26,7 @@ const router = new VueRouter({
 
 // gonna fire every time we change route! just before new route is loaded!
 router.beforeEach((to, from, next) => {
-  document.title = `Vuetify Todo - ${to.name}`
+  document.title = `${process.env.VUE_APP_TITLE} - ${to.name}`
   next()
 })
 

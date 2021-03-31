@@ -4,7 +4,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
-            Vuetify Todo
+            {{ $store.state.appTitle }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -50,7 +50,7 @@
       <v-container>
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-          <v-app-bar-title>Todo</v-app-bar-title>
+          <v-app-bar-title>{{ $store.state.appTitle }}</v-app-bar-title>
         </v-row>
         <v-row>
           <LiveDateTime />
