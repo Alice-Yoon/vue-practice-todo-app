@@ -6,9 +6,6 @@
           <v-list-item-title class="title">
             Vuetify Todo
           </v-list-item-title>
-          <v-list-item-subtitle>
-            Best To-do
-          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -31,6 +28,7 @@
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
+
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -49,9 +47,15 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Todo</v-app-bar-title>
+      <v-container>
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-app-bar-title>Todo</v-app-bar-title>
+        </v-row>
+        <v-row>
+          <LiveDateTime />
+        </v-row>
+      </v-container>
 
       <v-spacer></v-spacer>
 
@@ -69,9 +73,10 @@
 <script>
   import Snackbar from '@/components/Shared/Snackbar.vue'
   import Search from '@/components/Tools/Search.vue'
+  import LiveDateTime from '@/components/Tools/LiveDateTime.vue'
 
   export default {
-    components: { Snackbar, Search },
+    components: { Snackbar, Search, LiveDateTime },
     data: () => ({ 
       drawer: null,
       items: [
