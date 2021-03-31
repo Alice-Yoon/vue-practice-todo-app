@@ -29,7 +29,7 @@
   </v-menu>
 
   <DialogEdit v-if="dialogs.edit" @close='dialogs.edit = false' :task='task' />
-
+  <DialogDueDate v-if="dialogs.dueDate" @close='dialogs.dueDate = false' :task='task' />
   <DialogDelete v-if="dialogs.delete" @close='dialogs.delete = false' :task='task' />
 </div>
 </template>
@@ -37,14 +37,16 @@
 <script>
 import DialogDelete from './Dialogs/DialogDelete.vue'
 import DialogEdit from './Dialogs/DialogEdit.vue'
+import DialogDueDate from './Dialogs/DialogDueDate.vue'
 
 export default {
   props: ['task'],
-  components: { DialogDelete, DialogEdit },
+  components: { DialogDelete, DialogEdit, DialogDueDate },
   data() {
     return {
       dialogs: {
         edit: false,
+        dueDate: false,
         delete: false
       },
       items: [
@@ -59,7 +61,7 @@ export default {
           title: 'Due date',
           icon: 'mdi-calendar',
           click() {
-
+            this.dialogs.dueDate = true
           } 
         },
         { 
