@@ -27,6 +27,7 @@
         </v-btn>
         <v-btn
           @click="saveTask"
+          :disabled="taskTitleInvalid"
           color="red darken-1"
           text
         >
@@ -45,11 +46,17 @@
         taskTitle: null
       }
     },
+    computed: {
+      taskTitleInvalid() {
+        return !this.taskTitle || this.taskTitle === this.task.title
+      }
+    },
     mounted() {
       this.taskTitle = this.task.title
     },
     methods: {
       saveTask() {
+        if(this.taskTitleInvalid) return
         const payload = {
           id: this.task.id,
           title: this.taskTitle

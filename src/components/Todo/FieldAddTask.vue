@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     addTaskHandler() {
+      if(!this.newTaskTitle) return
       this.$store.dispatch('addTask', this.newTaskTitle)
       this.newTaskTitle = ''
     }
