@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-list-item
-      @click="$store.commit('doneTask', task.id)"
+      @click="$store.dispatch('doneTask', task.id)"
       :class="{ 'blue lighten-5' : task.done }"
     >
       <template v-slot:default>
@@ -26,7 +26,17 @@
 
         <TaskMenu :task='task' />
 
+        <v-list-item-action v-if="$store.state.sorting">
+          <v-btn
+            color="primary"
+            class="handle"
+            icon
+          >
+            <v-icon>mdi-drag-horizontal-variant</v-icon>
+          </v-btn>
+        </v-list-item-action>
       </template>
+
     </v-list-item>
     <v-divider></v-divider>
 
