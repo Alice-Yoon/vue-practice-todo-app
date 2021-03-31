@@ -24,4 +24,10 @@ const router = new VueRouter({
   routes
 })
 
+// gonna fire every time we change route! just before new route is loaded!
+router.beforeEach((to, from, next) => {
+  document.title = `Vuetify Todo - ${to.name}`
+  next()
+})
+
 export default router
